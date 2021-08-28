@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
+
+<title>Anime lists</title>
 <div style="background-color: #34494e">
 <img src="/static/blog/img/contact.jpg" class="img-fluid" alt="contact_img">
 <br>
@@ -10,12 +12,12 @@
 	<div class="row">	
 	{% for post in posts  %}
 	  <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
-		<div class="card card border-dark mb-3" style="width: 18rem box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+		<div class="card card border-dark mb-3" style="width: 18rem ; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
 		  <img src="/media/images/{{post.img_name}}.jpg" class="card-img-top" alt="{{post.img_name}}">
-		  <div class="card-body"  style="background-color:#34495e ">
+		  <div class="card-body"  style="background-color:#34495e ;  ">
 		    <h5 class="card-title">{{post.title}}</h5>
 		    <p class="card-text">{{post.content|slice:":10"}}</p>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		    <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary">open</a>
 		  </div>
 		 </div>
 	   </div>
