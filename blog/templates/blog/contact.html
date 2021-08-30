@@ -19,11 +19,12 @@ body {
 	<div class="container " align="center" style=" padding-top: 120px ; padding-bottom: 120px ;   background-color: transparent;  width: 500px; height:720px;
   ">
 
- 		<form class="form-control " style=" border:transparent ; background-color: transparent; color:black; " name="sentMessage" id="contactForm" action = "/contact" method="post" novalidate>
+ 		<form class="form-control " style=" border:transparent ; background-color: transparent; color:black; " name="sentMessage" id="contactForm" action = "" method="POST" novalidate>
+ 			{%csrf_token%}
             <div class="control-group" >
               <div class="form-group "  >
            
-                <input type="text" class="form-control" style=" border:red ;  "  placeholder="Name" id="name" name='name' required data-validation-required-message="Please enter your name.">
+                <input type="text" class="form-control" style=" border:red ;  "  placeholder="Name" id="Name" name='Name' required data-validation-required-message="Please enter your name.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -37,7 +38,7 @@ body {
             <div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 
-                <input type="tel" class="form-control" placeholder="Phone Number" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
+                <input type="tel" class="form-control" placeholder="Phone Number" name="phone_num" id="phone_num" required data-validation-required-message="Please enter your phone number.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -54,6 +55,11 @@ body {
               <button type="submit" class="btn btn-success"  style="width: 100px;" id="sendMessageButton">Send</button>
             </div>
           </form>
+          {% if message  %}
+        <div class="alert alert-success">
+           
+        </div>
+        {% endif %}
 	</div>
 
 
